@@ -18,28 +18,40 @@
 # Ask the user what size game board they want to draw, and draw it for them to the 
 # screen using Pythons print statement.
 
-def draw_game_board(row, col):
-    char_list = ['-','|']
-    i = 0
-    j = 0
-    row_limit = row * 2 + 1
-    col_limit = col * 4 + 1
-    while i < row_limit:
-        j = 0
-        while j < col_limit:
-            if i % 2 == 0:
-                if j % 4 == 0:
-                    print(' ', end='')
-                else:
-                    print('-', end='')
-            else:
-                if j % 4 == 0:
-                    print('|', end='')
-                else:
-                    print(' ', end='')
-            j += 1
-        i += 1
-        print()
+# this function draws any size of board
+# def draw_game_board(row, col):
+#     row_limit = row * 2 + 1
+#     col_limit = col * 4 + 1
+#     i = 0
+#     while i < row_limit:
+#         j = 0
+#         while j < col_limit:
+#             if i % 2 == 0:
+#                 if j % 4 == 0:
+#                     print(' ', end='')
+#                 else:
+#                     print('-', end='')
+#             else:
+#                 if j % 4 == 0:
+#                     print('|', end='')
+#                 else:
+#                     print(' ', end='')
+#             j += 1
+#         i += 1
+#         print()
 
-row, col = input("Enter the size of the board:(rowxcol) ").split('x')
-draw_game_board(int(row), int(col))
+# draw_game_board(2,3)
+
+def draw_horizontal(board_size):
+    print(' ---' * board_size)
+
+def draw_vertical(board_size):
+    print('|   ' * (board_size + 1))
+
+
+if __name__=='__main__':
+    board_size = int(input("Enter the size of the board (size x size): "))
+    for index in range(board_size):
+        draw_horizontal(board_size)
+        draw_vertical(board_size)
+    draw_horizontal(board_size)

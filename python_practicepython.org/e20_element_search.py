@@ -24,11 +24,10 @@ def binary_search(ordered_list, key):
             return True
         elif key < ordered_list[mid]:
             end = mid - 1
-            mid = int((start + end) / 2)
         # else:
         elif key > ordered_list[mid]:
             start = mid + 1
-            mid = int((start + end) / 2)
+        mid = int((start + end) / 2)
     return False
     # using recursion
     # mid = int(len(ordered_list) / 2)
